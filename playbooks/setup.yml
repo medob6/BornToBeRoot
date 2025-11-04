@@ -1,0 +1,43 @@
+---
+- name: Configure BornToBeRoot VM
+  hosts: all
+  become: yes
+  tasks:
+    - name: Ensure apt cache is up to date
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600
+
+    - name: Install base packages
+      apt:
+        name:
+          - sudo
+          - curl
+          - wget
+          - ufw
+          - openssh-server
+          - nginx
+          - mariadb-server
+          - vsftpd
+        state: present
+
+    - name: Ensure admin user exists
+      user:
+        name: adminuser
+        shell: /bin/bash
+        groups: sudo
+        create_home: yes
+
+    - name: Configure SSH - disable root login
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '^#?PermitRootLogin'
+        line: 'PermitRootLogin no'
+        backrefs: no
+      notify: Restart ssh
+
+  handlers:
+    - name: Restart ssh
+      service:
+        name: ssh
+        state: restarted
