@@ -125,7 +125,6 @@ sudo bash ./checker/check_my_vm.sh
 ```
 
 ## Repository Layout
-Suggested layout (adjust to actual repo contents):
 - README.md — this file
 - LICENSE
 - scripts/ — one‑shot install scripts and helpers
@@ -134,25 +133,8 @@ Suggested layout (adjust to actual repo contents):
 - checker/ — validation / grading scripts
 - docs/ — additional documentation and design notes
 
-## Contributing
-Contributions, issues, and feature requests are welcome.
-- Fork the repo
-- Create a feature branch
-- Add tests or documentation for new features
-- Open a PR with a clear description
-
 Please follow code style and document any automation you add.
 
 ## License
 This project is provided under the MIT License — see the [LICENSE](LICENSE) file for details.
-
-## Authors / Acknowledgements
-- medob6 — repository owner
-- Inspired by: @ayoub0x1/born2beroot and the 42 born2beroot exercise
-- Thanks to the open-source community for tools and references
-
 ---
-If you want, I can also:
-- Customize this README to reference the exact scripts/playbooks you have,
-- Create a minimal scripts/setup_vm.sh or an Ansible scaffold and provide it here,
-- Prepare a pull request (I’ll need repository write access to create/push it).
